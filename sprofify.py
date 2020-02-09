@@ -12,6 +12,7 @@ from album import Album
 from artist import Artist
 
 from mpc import add_to_queue
+from mpc import clear_queue
 
 
 def get_authorization_headers(username):
@@ -134,6 +135,16 @@ if __name__ == "__main__":
     sp = get_spotify_client(**spotify_auth_args)
 
     r = Rofi()
+
+    options = ["search", "clear queue"]
+    index, key = r.select("select an option", options)
+
+    if key == -1:
+        sys.exit(1)
+
+    if index == 1:
+        clear_queue()
+        sys.exit(1)
 
     name = r.text_entry("Enter the search term")
     artists = get_artists_name(name)

@@ -12,3 +12,7 @@ def add_to_queue(track_uri):
         check_output("mpc add " + track_uri, shell=True)
     except (RuntimeError, TypeError, NameError):
         pass
+
+
+def clear_queue():
+    check_output("mpc clear", shell=True)
