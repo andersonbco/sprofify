@@ -5,14 +5,14 @@ import spotipy.util
 import sys
 import json
 import requests
-import options
+from sprofify import options
 from rofi import Rofi
 
-from album import Album
-from artist import Artist
+from sprofify.album import Album
+from sprofify.artist import Artist
 
-from mpc import add_to_queue
-from mpc import clear_queue
+from sprofify.mpc import add_to_queue
+from sprofify.mpc import clear_queue
 
 
 def get_authorization_headers(username):
