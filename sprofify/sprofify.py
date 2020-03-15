@@ -5,15 +5,15 @@ import spotipy.util
 import sys
 import json
 import requests
-from sprofify import options
 from rofi import Rofi
 
-from sprofify.album import Album
-from sprofify.artist import Artist
+from .album import Album
+from .artist import Artist
 
-from sprofify.mpc import add_to_queue
-from sprofify.mpc import clear_queue
+from .options import get_options
 
+from .mpc import add_to_queue
+from .mpc import clear_queue
 
 def get_authorization_headers(username):
     f = open(".cache-{}".format(username), "r")
@@ -124,7 +124,7 @@ def get_artist_albums(uri):
 
 if __name__ == "__main__":
 
-    opt = options.get_options()
+    opt = get_options()
 
     spotify_auth_args = {
         "username": opt.username,
